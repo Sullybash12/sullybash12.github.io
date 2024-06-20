@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Countdown</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .countdown {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .countdown-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .countdown-timer {
+            font-size: 36px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="countdown">
+        <div class="countdown-title">Countdown to her birthday!!</div>
+        <div class="countdown-timer" id="countdown"></div>
+    </div>
+
+    <script>
+        // Set the target birthday date (YYYY-MM-DD format)
+        const birthday = new Date('2024-06-27');
+
+        function updateCountdown() {
+            const now = new Date();
+            const timeDiff = birthday.getTime() - now.getTime();
+
+            if (timeDiff <= 0) {
+                // Birthday has passed
+                // document.getElementById('countdown').innerHTML = 'Happy Birthday!';
+                window.location="happybirthday.html";
+            } else {
+                // Calculate days, hours, minutes, seconds
+                const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+                document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }
+        }
+
+        // Update the countdown every second
+        setInterval(updateCountdown, 1000);
+
+        // Initial call to display countdown immediately
+        updateCountdown();
+    </script>
+</body>
+</html>

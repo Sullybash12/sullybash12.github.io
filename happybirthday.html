@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #ffecb3; /* Light yellow background */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Added to stack elements vertically */
+            height: 100vh;
+        }
+        .birthday-title {
+            font-size: 48px;
+            color: #ff39ff; /* Red color for emphasis */
+            margin-bottom: 20px;
+            animation: bounce 2s infinite; /* Animation for bouncing effect */
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .confetti {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .confetti:before, .confetti:after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #4caf50; /* Green confetti color */
+            border-radius: 50%;
+            opacity: 0.9;
+            animation: confetti-fall 3s linear infinite;
+        }
+        .confetti:before {
+            left: 25%;
+            animation-delay: 0;
+        }
+        .confetti:after {
+            left: 75%;
+            animation-delay: 1s;
+        }
+        @keyframes confetti-fall {
+            0% { transform: translateY(-200px) rotateZ(0); }
+            100% { transform: translateY(100vh) rotateZ(720deg); }
+        }
+        .images-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+        .image {
+            max-width: 45%;
+            /* max-height: 75%; */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <h1 class="birthday-title">HAPPY BIRTHDAY LILA!!!</h1>
+
+    <!-- Confetti animation -->
+    <div class="confetti"></div>
+
+    <!-- Images container -->
+    <div class="images-container">
+        <img src="Images/happybirthdaylila.jpg" alt="PARTY HATS" class="image">
+        <img src="Images/skipperresized.png" alt="PARTY HATS" class="image">
+    </div>
+</body>
+</html>
