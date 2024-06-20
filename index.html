@@ -64,7 +64,7 @@
     <script>
         function checkPswd() {
             var confirmPassword = "live laugh love lila";
-            var password = document.getElementById("pswd").value;
+            var password = document.getElementById("pswd").value.toLowerCase();
             if (password === confirmPassword) {
                 window.location.href = "main.html";
                 return false; // Prevent form submission
